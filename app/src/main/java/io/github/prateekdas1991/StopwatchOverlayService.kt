@@ -72,6 +72,9 @@ class StopwatchOverlayService : Service() {
             addAction(ACTION_TIMER_STOP)
         }
         registerReceiver(receiver, filter, RECEIVER_EXPORTED)
+        val rgbaOverlay = ByteArray(350 * 100 * 4)
+        OverlayWriter().writeOverlayGrayFrame(rgbaOverlay)
+
     }
 
     private fun startStopwatch() {
